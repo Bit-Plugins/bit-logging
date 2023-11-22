@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 const { embedColours, botIDs } = require('./config');
-const SQLite = require("better-sqlite3");
-const sql = new SQLite('./bot.sqlite');
+
+
 
 module.exports = {
 	name: 'emojiCreate',
