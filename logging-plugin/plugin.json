@@ -1,0 +1,10 @@
+{
+    "name": "Logging Plugin",
+    "developer": "Lockyz Dev",
+    "version": "1.0.0-pre",
+    "bitVersion": "5.x.x",
+    "support": "https://github.com/Bit-Plugins/logging-plugin/issues",
+    "updateURL": "https://cdn.lockyzdev.net/bit/plugins/logging/update.json",
+    "events": "true",
+    "commands": "false"
+}
