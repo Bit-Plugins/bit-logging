@@ -1,13 +1,5 @@
-# Example Plugin
-An example plugin for Bit
+# Logging Plugin
+A logging plugin created for Bit 5
 
-## Folder Structure
-Bit Plugins follow the following folder structure
-- Folder-Name
- - commands
-  - command.js
- - events
-  - event.js
- - plugin.json
-
-Please see the plugin.json file for a list of support values in the current Bit version.
+## Required modules
+- None
