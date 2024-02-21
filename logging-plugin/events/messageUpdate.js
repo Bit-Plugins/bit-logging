@@ -1,5 +1,5 @@
 const { EmbedBuilder, Message, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const { embedColours, botIDs } = require('./config');
+const { embedColours, botIDs } = require('../config.json');
 
 module.exports = {
 	name: 'messageUpdate',

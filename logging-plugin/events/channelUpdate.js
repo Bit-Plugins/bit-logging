@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColours, botIDs } = require('./config');
+const { embedColours, botIDs } = require('../config.json');
 
 module.exports = {
 	name: 'channelUpdate',
