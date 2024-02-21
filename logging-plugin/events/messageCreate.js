@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { EmbedBuilder } = require('discord.js');
-const { embedColours } = require('../config.json');
+const { embedColours, botIDs } = require('../config.json');
 
 module.exports = {
 	name: 'messageCreate',
