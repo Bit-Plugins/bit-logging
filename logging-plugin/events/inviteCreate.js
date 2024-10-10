@@ -8,7 +8,9 @@ module.exports = {
 	execute(invite) {
         const client = invite.client
 
-		if(logs[invite.guild.id].invite.create === false) {
+		if(logs[invite.guild.id]) {
+			if(logs[invite.guild.id].invite.create === false) return;
+		} else {
 			return;
 		}
 

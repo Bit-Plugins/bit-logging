@@ -18,7 +18,9 @@ module.exports = {
 		var nname = newRole.name
 		var oname = oldRole.name
 
-		if(logs[role.guild.id].role.edit === false) {
+		if(logs[role.guild.id]) {
+			if(logs[role.guild.id].role.edit === false) return;
+		} else {
 			return;
 		}
 

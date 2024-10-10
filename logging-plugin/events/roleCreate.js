@@ -5,7 +5,9 @@ module.exports = {
 	name: 'roleCreate',
 	execute(role) {
 		const client = role.client
-		if(logs[role.guild.id].role.create === false) {
+		if(logs[role.guild.id]) {
+			if(logs[role.guild.id].role.create === false) return;
+		} else {
 			return;
 		}
 

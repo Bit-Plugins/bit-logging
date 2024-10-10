@@ -5,7 +5,9 @@ module.exports = {
 	name: 'guildBanRemove',
 	execute(ban) {
 		const client = ban.client
-		if(logs[ban.guild.id].ban.delete === false) {
+		if(logs[ban.guild.id]) {
+			if(logs[ban.guild.id].ban.delete === false) return;
+		} else {
 			return;
 		}
 

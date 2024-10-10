@@ -4,7 +4,9 @@ const { embedColours, botIDs, logs } = require('../config.json');
 module.exports = {
 	name: 'channelUpdate',
 	execute(oldChannel, newChannel) {
-		if(logs[newChannel.guild.id].channel.edit === false) {
+		if(logs[newChannel.guild.id]) {
+			if(logs[newChannel.guild.id].channel.edit === false) return;
+		} else {
 			return;
 		}
 

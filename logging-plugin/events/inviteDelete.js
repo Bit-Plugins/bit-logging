@@ -6,7 +6,9 @@ const { embedColours, botIDs, logs } = require('../config.json');
 module.exports = {
 	name: 'inviteDelete',
 	execute(invite) {
-		if(logs[invite.guild.id].invite.delete === false) {
+		if(logs[invite.guild.id]) {
+			if(logs[invite.guild.id].invite.delete === false) return;
+		} else {
 			return;
 		}
 

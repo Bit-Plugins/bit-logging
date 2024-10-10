@@ -7,7 +7,9 @@ module.exports = {
 	execute(message) {
         const client = message.client
 
-        if(logs[message.guild.id].member.verified === false) {
+        if(logs[message.guild.id]) {
+            if(logs[message.guild.id].member.verified === false) return;
+		} else {
 			return;
 		}
 
