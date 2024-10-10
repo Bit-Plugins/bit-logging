@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColours, botIDs } = require('../config.json');
+const { embedColours, botIDs, logs } = require('../config.json');
 
 module.exports = {
 	name: 'roleUpdate',
@@ -18,10 +18,11 @@ module.exports = {
 		var nname = newRole.name
 		var oname = oldRole.name
 
-		if(newRole.guild.id !== botIDs.guild) {
+		if(logs[role.guild.id].role.edit === false) {
 			return;
 		}
 
+		if(botIDs[role.guild.id].logs) {
 			if(ncolor !== ocolor || nhoist !== ohoist || nmentionable !== omentionable || nname !== oname || npermissions !== opermissions || nemoji !== oemoji) {
 				const embed = new EmbedBuilder()
 					.setDescription("A role named "+oname+" has been updated")
@@ -30,6 +31,7 @@ module.exports = {
 							{ name: 'New Name', value: nname, inline: true },
 						)
 					}
+
 					if(ncolor !== ocolor) {
 						if(ncolor) {
 							embed.setColor(ncolor)
@@ -47,6 +49,7 @@ module.exports = {
 							embed.setColor(embedColours.neutral)
 						}
 					}
+
 					if(nhoist !== ohoist) {
 						if(!nhoist) {
 							embed.addFields({ name: 'Hoisted?', value: "No", inline: true })
@@ -54,6 +57,7 @@ module.exports = {
 							embed.addFields({ name: 'Hoisted?', value: "Yes", inline: true })
 						}
 					}
+
 					if(nmentionable !== omentionable) {
 						if(!nmentionable) {
 							embed.addFields({ name: 'Mentionable?', value: "No", inline: true })
@@ -69,6 +73,7 @@ module.exports = {
 						}
 						embed.addFields({ name: '\u200B', value: '\u200B', inline: true })
 					}
+
 					if(nemoji !== oemoji) {
 						if(oemoji) {
 							if(nemoji) {
@@ -80,10 +85,12 @@ module.exports = {
 							embed.addFields({ name: 'Emoji', value: nemoji, inline: true })
 						}
 					}
+					
 					embed.setFooter({ text: 'Role ID '+ newRole.id })
 					embed.setTimestamp();
-				client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
+				client.channels.cache.get(botIDs[role.guild.id].logs).send({ embeds: [embed] })
 				return;
+			}
 		}
 	}
 }
