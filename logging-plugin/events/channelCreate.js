@@ -58,7 +58,7 @@ module.exports = {
 			if(channel.parent) {
 				categoryText = " in "+channel.parent.name+' was created.'
 			} else {
-				categoryText = " was deleted."
+				categoryText = " was created."
 			}
 			
 			const embed = new EmbedBuilder()

@@ -15,15 +15,6 @@ module.exports = {
 
 			var nname = newChannel.name
 			var oname = oldChannel.name
-			var nparent
-			if(newChannel.parent.name) {
-				nparent = newChannel.parent.name
-			}
-
-			var oparent
-			if(oldChannel.parent.name) {
-				oparent = oldChannel.parent.name
-			}
 
 			var ntype = newChannel.type.toString()
 			var otype = oldChannel.type.toString()
@@ -61,18 +52,32 @@ module.exports = {
 				{ value: 29, name: "Unknown"},
 				{ value: 30, name: "Unknown"},
 			];
+			var nparent
+			var oparent
+
+			if(newChannel.type !== 4 && newChannel.parent) {
+				if(newChannel.parent.name) {
+					nparent = newChannel.parent.name
+				}
+			}
+
+			if(oldChannel.type !== 4 && oldChannel.parent) {
+				if(oldChannel.parent.name) {
+					oparent = oldChannel.parent.name
+				}
+			}
 
 			var isThread = false;
 
-			if(channel.type === 11 || channel.type === 12 || channel.type === 13)
+			if(newChannel.type === 11 || newChannel.type === 12)
 			{
 				isThread = true;
 			}
 
 			var categoryText
 
-			if(channel.parent) {
-				categoryText = " in "+channel.parent.name+' was edited.'
+			if(newChannel.parent) {
+				categoryText = " in "+newChannel.parent.name+' was edited.'
 			} else {
 				categoryText = " was edited."
 			}

@@ -11,20 +11,20 @@ module.exports = {
 		var ohoist = oldRole.hoist
 		var nmentionable = newRole.mentionable
 		var omentionable = oldRole.mentionable
-		var npermissions = newRole.PermissionsBitField.FLAGS
-		var opermissions = oldRole.PermissionsBitField.FLAGS
+		var npermissions = newRole.permissions.FLAGS
+		var opermissions = oldRole.permissions.FLAGS
 		var nemoji = newRole.unicodeEmoji
 		var oemoji = oldRole.unicodeEmoji
 		var nname = newRole.name
 		var oname = oldRole.name
 
-		if(logs[role.guild.id]) {
-			if(logs[role.guild.id].role.edit === false) return;
+		if(logs[newRole.guild.id]) {
+			if(logs[newRole.guild.id].role.edit === false) return;
 		} else {
 			return;
 		}
 
-		if(botIDs[role.guild.id].logs) {
+		if(botIDs[newRole.guild.id].logs) {
 			if(ncolor !== ocolor || nhoist !== ohoist || nmentionable !== omentionable || nname !== oname || npermissions !== opermissions || nemoji !== oemoji) {
 				const embed = new EmbedBuilder()
 					.setDescription("A role named "+oname+" has been updated")
@@ -90,7 +90,7 @@ module.exports = {
 					
 					embed.setFooter({ text: 'Role ID '+ newRole.id })
 					embed.setTimestamp();
-				client.channels.cache.get(botIDs[role.guild.id].logs).send({ embeds: [embed] })
+				client.channels.cache.get(botIDs[newRole.guild.id].logs).send({ embeds: [embed] })
 				return;
 			}
 		}
