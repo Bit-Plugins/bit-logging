@@ -7,10 +7,10 @@
 		"secondary": "#93714e"
 	},
 	"botIDs": {
+		"client": "clientID",
+		"owner": "ownerID",
 		"guildID": {
-			"logs": "loggingID",
-			"client": "clientID",
-			"owner": "ownerID"
+			"logs": "loggingID"
 		}
 	},
 	"logs": {
