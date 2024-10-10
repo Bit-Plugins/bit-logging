@@ -9,24 +9,23 @@ module.exports = {
 			return;
 		}
 
-		if(ban.guild.id !== botIDs.guild) {
-			return;
-		}
+		if(botIDs[ban.guild.id].logs) {
 
-		var banReason
+			var banReason
 
 			if(ban.reason) {
-				banReason = " banned for "+banReason
+				banReason = " banned for "+ban.reason
 			} else {
 				banReason = "."
 			}
 
-		const embed = new EmbedBuilder()
-			.setColor(embedColours.negative)
-			.setDescription("A user named "+ban.user.username+" was unbanned"+banReason)
-			embed.setTimestamp()
-			embed.setFooter({ text: 'Ban ID '+'Currently Unavailable' })
-		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
-		return;
+			const embed = new EmbedBuilder()
+				.setColor(embedColours.negative)
+				.setDescription("A user named "+ban.user.username+" was unbanned"+banReason)
+				embed.setTimestamp()
+				embed.setFooter({ text: 'Ban ID '+'Currently Unavailable' })
+			client.channels.cache.get(botIDs[ban.guild.id].logs).send({ embeds: [embed] })
+			return;
+		}
 	}
 }

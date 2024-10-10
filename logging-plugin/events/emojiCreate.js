@@ -9,17 +9,15 @@ module.exports = {
 		if(logs.emoji.create === false) {
 			return;
 		}
-		
-		if(emoji.guild.id !== botIDs.guild) {
+
+		if(botIDs[emoji.guild.id].logs) {
+			const embed = new EmbedBuilder()
+				.setColor(embedColours.positive)
+				.setDescription("An emoji named "+emoji.name+" was created <:"+emoji.name+":"+emoji.id+">")
+				.setFooter({ text: 'Emoji ID '+emoji.id })
+				.setTimestamp();
+			client.channels.cache.get(botIDs[emoji.guild.id].logs).send({ embeds: [embed] });
 			return;
 		}
-
-		const embed = new EmbedBuilder()
-			.setColor(embedColours.positive)
-			.setDescription("An emoji named "+emoji.name+" was created <:"+emoji.name+":"+emoji.id+">")
-			.setFooter({ text: 'Emoji ID '+emoji.id })
-			.setTimestamp();
-		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] });
-		return;
 	},
 };

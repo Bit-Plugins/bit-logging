@@ -10,15 +10,13 @@ module.exports = {
 			return;
 		}
 
-		if(member.guild.id != botIDs.guild) {
+		if(botIDs[member.guild.id].logs) {
+			const embed = new EmbedBuilder()
+				.setColor(embedColours.negative)
+				.setDescription("A user named <@"+user.id+"> left the server.")
+				.setTimestamp();
+			client.channels.cache.get(botIDs[member.guild.id].logs).send({ embeds: [embed] })
 			return;
 		}
-
-		const embed = new EmbedBuilder()
-			.setColor(embedColours.negative)
-			.setDescription("A user named <@"+user.id+"> left the server.")
-			.setTimestamp();
-		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
-		return;
 	}
 }

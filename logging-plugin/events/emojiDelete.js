@@ -10,17 +10,15 @@ module.exports = {
 			return;
 		}
 
-		if(emoji.guild.id !== botIDs.guild) {
+		if(botIDs[emoji.guild.id].logs) {
+        	const client = emoji.client
+			const embed = new EmbedBuilder()
+				.setColor(embedColours.negative)
+				.setDescription("An Emoji named "+emoji.name+" was deleted.")
+				.setFooter({ text: 'Emoji ID '+emoji.id })
+				.setTimestamp();
+			client.channels.cache.get(botIDs[emoji.guild.id].logs).send({ embeds: [embed] });
 			return;
 		}
-
-        const client = emoji.client
-		const embed = new EmbedBuilder()
-			.setColor(embedColours.negative)
-			.setDescription("An Emoji named "+emoji.name+" was deleted.")
-			.setFooter({ text: 'Emoji ID '+emoji.id })
-			.setTimestamp();
-		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] });
-		return;
 	},
 };

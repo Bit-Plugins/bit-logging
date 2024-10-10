@@ -6,21 +6,18 @@ const { embedColours, botIDs, logs } = require('../config.json');
 module.exports = {
 	name: 'inviteDelete',
 	execute(invite) {
-
 		if(logs.invite.delete === false) {
 			return;
 		}
 
-		if(invite.guild.id != botIDs.guild) {
+		if(botIDs[invite.guild.id].logs) {
+        	const client = invite.client
+			const embed = new EmbedBuilder()
+				.setColor(embedColours.negative)
+				.setDescription("An invite was deleted.\nhttps://discord.gg/"+invite.code)
+				.setTimestamp();
+			client.channels.cache.get(botIDs[invite.guild.id].logs).send({ embeds: [embed] });
 			return;
 		}
-
-        const client = invite.client
-		const embed = new EmbedBuilder()
-			.setColor(embedColours.negative)
-			.setDescription("An invite was deleted.\nhttps://discord.gg/"+invite.code)
-			.setTimestamp();
-		client.channels.cache.get(botIDs.logs).send({ embeds: [embed] });
-		return;
 	},
 };

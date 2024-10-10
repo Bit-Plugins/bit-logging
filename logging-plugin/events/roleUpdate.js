@@ -22,10 +22,7 @@ module.exports = {
 			return;
 		}
 
-		if(newRole.guild.id !== botIDs.guild) {
-			return;
-		}
-
+		if(botIDs[role.guild.id].logs) {
 			if(ncolor !== ocolor || nhoist !== ohoist || nmentionable !== omentionable || nname !== oname || npermissions !== opermissions || nemoji !== oemoji) {
 				const embed = new EmbedBuilder()
 					.setDescription("A role named "+oname+" has been updated")
@@ -86,8 +83,9 @@ module.exports = {
 					}
 					embed.setFooter({ text: 'Role ID '+ newRole.id })
 					embed.setTimestamp();
-				client.channels.cache.get(botIDs.logs).send({ embeds: [embed] })
+				client.channels.cache.get(botIDs[role.guild.id].logs).send({ embeds: [embed] })
 				return;
+			}
 		}
 	}
 }
