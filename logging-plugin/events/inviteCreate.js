@@ -8,7 +8,7 @@ module.exports = {
 	execute(invite) {
         const client = invite.client
 
-		if(logs.invite.create === false) {
+		if(logs[invite.guild.id].invite.create === false) {
 			return;
 		}
 
@@ -17,10 +17,10 @@ module.exports = {
 			currentDate = currentDate/1000
 			var inviteEnd
 
-			if(invite.maxAge === 0) {
-			} else {
+			if(invite.maxAge !== 0 && invite.maxAge !== null) {
 				inviteEnd = Math.floor(currentDate+invite.maxAge)
 			}
+
 			var inviter
 		
 			if(invite.inviter.displayName) {
@@ -38,6 +38,7 @@ module.exports = {
 				} else {
 					embed.setDescription("An invite was created by "+inviter+", it will end <t:"+inviteEnd+":R> and has "+invite.maxUses+" max uses\nhttps://discord.gg/"+invite.code);
 				}
+
 				embed.setTimestamp();
 			client.channels.cache.get(botIDs[invite.guild.id].logs).send({ embeds: [embed] });
 			return;

@@ -6,7 +6,7 @@ module.exports = {
 	async execute(member) {
 		const client = member.client
 		const user = member.user
-		if(logs.member.add === false) {
+		if(logs[member.guild.id].member.add === false) {
 			return;
 		}
 

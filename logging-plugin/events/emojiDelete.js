@@ -6,7 +6,7 @@ const { embedColours, botIDs, logs } = require('../config.json');
 module.exports = {
 	name: 'emojiDelete',
 	execute(emoji) {
-		if(logs.emoji.delete === false) {
+		if(logs[emoji.guild.id].emoji.delete === false) {
 			return;
 		}
 

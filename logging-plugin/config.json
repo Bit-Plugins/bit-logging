@@ -14,36 +14,38 @@
 		}
 	},
 	"logs": {
-		"channel": {
-			"create": true,
-			"edit": true,
-			"delete": true
-		},
-		"emoji": {
-			"create": true,
-			"delete": true
-		},
-		"ban": {
-			"create": true,
-			"delete": true
-		},
-		"member": {
-			"add": true,
-			"remove": true,
-			"verified": true
-		},
-		"invite": {
-			"create": true,
-			"delete": true
-		},
-		"message": {
-			"delete": true,
-			"edit": true
-		},
-		"role": {
-			"create": true,
-			"delete": true,
-			"edit": true
+		"guildID": {
+			"channel": {
+				"create": true,
+				"edit": true,
+				"delete": true
+			},
+			"emoji": {
+				"create": true,
+				"delete": true
+			},
+			"ban": {
+				"create": true,
+				"delete": true
+			},
+			"member": {
+				"add": true,
+				"remove": true,
+				"verified": true
+			},
+			"invite": {
+				"create": true,
+				"delete": true
+			},
+			"message": {
+				"delete": true,
+				"edit": true
+			},
+			"role": {
+				"create": true,
+				"delete": true,
+				"edit": true
+			}
 		}
 	}
 }

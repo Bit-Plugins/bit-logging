@@ -4,7 +4,7 @@ const { embedColours, botIDs, logs } = require('../config.json');
 module.exports = {
 	name: 'channelDelete',
 	execute(channel) {
-		if(logs.channel.delete === false) {
+		if(logs[channel.guild.id].channel.delete === false) {
 			return;
 		}
 
@@ -62,11 +62,13 @@ module.exports = {
 
 			const embed = new EmbedBuilder()
 				.setColor(embedColours.negative)
+				
 				if(isThread) {
 					embed.setDescription("A thread named "+channel.name)
 				} else {
 					embed.setDescription("A channel named "+channel.name+" of type "+lookup[channel.type].name+categoryText)
 				}
+
 				embed.setFooter({ text: 'Channel ID '+channel.id })
 				embed.setTimestamp();
 			client.channels.cache.get(botIDs[channel.guild.id].logs).send({ embeds: [embed] });

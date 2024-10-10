@@ -5,9 +5,8 @@ module.exports = {
 	name: 'messageUpdate',
 	execute(oldMessage, newMessage) {
 		const client = newMessage.client
-		const user = newMessage.user
 
-		if(logs.message.edit === false) {
+		if(logs[newMessage.guild.id].message.edit === false) {
 			return;
 		}
 		
@@ -26,6 +25,7 @@ module.exports = {
 			const embed0 = new EmbedBuilder()
 				.setColor(embedColours.neutral)
 				.setDescription("A message by <@"+oldMessage.author.id+"> in <#"+newMessage.channel.id+"> was edited.")
+
 				if(newMessage.cleanContent.length > 1024) {
 					embed0.addFields({ name: 'Content', value: 'Content is over 1024 lines, it\'s in a new embed'})
 				} else if(newMessage.cleanContent.length > 1) {
@@ -33,6 +33,7 @@ module.exports = {
 				} else {
 					embed0.addFields({ name: 'Content', value: 'Message content was not cached so it cannot be displayed'})
 				}
+
 				embed0.setTimestamp();
 			client.channels.cache.get(botIDs[newMessage.guild.id].logs).send({ embeds: [embed0], components: [row] })
 			if(newMessage.cleanContent.length > 1024) {
@@ -40,6 +41,7 @@ module.exports = {
 					.setTitle("Message Content")
 					.setColor(embedColours.neutral)
 					.setDescription(newMessage.cleanContent)
+					.setTimestamp();
 				client.channels.cache.get(botIDs[newMessage.guild.id].logs).send({ embeds: [embed2] })
 			}
 			return;

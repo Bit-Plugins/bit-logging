@@ -5,12 +5,11 @@ module.exports = {
 	name: 'guildBanAdd',
 	execute(ban) {
 		const client = ban.client
-		if(logs.ban.create === false) {
+		if(logs[ban.guild.id].ban.create === false) {
 			return;
 		}
 
 		if(botIDs[ban.guild.id].logs) {
-
 			var banReason
 
 			if(ban.reason) {
@@ -22,7 +21,7 @@ module.exports = {
 			const embed = new EmbedBuilder()
 				.setColor(embedColours.positive)
 				.setDescription("A user named "+ban.user.username+" was banned"+banReason)
-				embed.setTimestamp()
+				.setTimestamp()
 			client.channels.cache.get(botIDs[ban.guild.id].logs).send({ embeds: [embed] })
 			return;
 		}

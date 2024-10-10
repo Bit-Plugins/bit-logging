@@ -6,7 +6,7 @@ module.exports = {
 	execute(member) {
 		const client = member.client
 		const user = member.user
-		if(logs.member.remove === false) {
+		if(logs[member.guild.id].member.remove === false) {
 			return;
 		}
 

@@ -6,11 +6,8 @@ module.exports = {
 	name: 'messageCreate',
 	execute(message) {
         const client = message.client
-        const user = message.author.user
-        const member = message.author
-        const guild = message.guild
 
-        if(logs.member.verified === false) {
+        if(logs[message.guild.id].member.verified === false) {
 			return;
 		}
 

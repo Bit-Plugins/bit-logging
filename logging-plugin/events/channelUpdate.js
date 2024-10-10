@@ -4,12 +4,11 @@ const { embedColours, botIDs, logs } = require('../config.json');
 module.exports = {
 	name: 'channelUpdate',
 	execute(oldChannel, newChannel) {
-		if(logs.channel.edit === false) {
+		if(logs[newChannel.guild.id].channel.edit === false) {
 			return;
 		}
 
 		if(botIDs[newChannel.guild.id].logs) {
-
 			const client = newChannel.client
 
 			var nname = newChannel.name
@@ -18,10 +17,12 @@ module.exports = {
 			if(newChannel.parent.name) {
 				nparent = newChannel.parent.name
 			}
+
 			var oparent
 			if(oldChannel.parent.name) {
 				oparent = oldChannel.parent.name
 			}
+
 			var ntype = newChannel.type.toString()
 			var otype = oldChannel.type.toString()
 
@@ -96,6 +97,7 @@ module.exports = {
 						{ name: 'New Type', value: lookup[ntype].name, inline: true },
 					)
 				}
+				
 				embed.setFooter({ text: 'Channel ID '+newChannel.id})
 				embed.setTimestamp();
 				client.channels.cache.get(botIDs[newChannel.guild.id].logs).send({ embeds: [embed] });

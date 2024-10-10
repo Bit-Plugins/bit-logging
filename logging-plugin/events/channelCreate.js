@@ -5,7 +5,7 @@ module.exports = {
 	name: 'channelCreate',
 	execute(channel) {
 		const client = channel.client
-		if(logs.channel.create === false) {
+		if(logs[channel.guild.id].channel.create === false) {
 			return;
 		}
 
@@ -61,11 +61,13 @@ module.exports = {
 			
 			const embed = new EmbedBuilder()
 				.setColor(embedColours.positive)
+
 				if(isThread) {
 					embed.setDescription("A thread named "+channel.name)
 				} else {
 					embed.setDescription("A channel named "+channel.name+" of type "+lookup[channel.type].name+categoryText)
 				}
+				
 				embed.setFooter({ text: 'Channel ID '+channel.id })
 				embed.setTimestamp();
 			client.channels.cache.get(botIDs[channel.guild.id].logs).send({ embeds: [embed] });

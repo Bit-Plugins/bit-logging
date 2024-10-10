@@ -5,8 +5,7 @@ module.exports = {
 	name: 'messageDelete',
 	execute(message) {
 		const client = message.client
-		const user = message.user
-		if(logs.message.delete === false) {
+		if(logs[message.guild.id].message.delete === false) {
 			return;
 		}
 
@@ -14,6 +13,7 @@ module.exports = {
 			const embed0 = new EmbedBuilder()
 				.setColor(embedColours.negative)
 				.setDescription("A message by <@"+message.author.id+"> in <#"+message.channel.id+"> was deleted")
+
 				if(message.cleanContent.length > 1024) {
 					embed0.addFields({name: 'Content', value: 'Message Content is over 1024 lines, it\'s in a new embed', inline: false })
 				} else if(message.cleanContent.length > 1) {
@@ -21,6 +21,7 @@ module.exports = {
 				} else {
 					embed0.addFields({ name: 'Content', value: 'Message Content was not cached so it cannot be displayed', inline: false })
 				}
+
 				embed0.setTimestamp();
 			client.channels.cache.get(botIDs[message.guild.id].logs).send({ embeds: [embed0] })
 			if(message.cleanContent.length > 1024) {
@@ -28,6 +29,7 @@ module.exports = {
 					.setTitle("Message Deleted | Message Content")
 					.setColor(embedColours.negative)
 					.setDescription(message.cleanContent)
+					.setTimestamp();
 				client.channels.cache.get(botIDs[message.guild.id].logs).send({ embeds: [embed1] })
 			}
 			return;
