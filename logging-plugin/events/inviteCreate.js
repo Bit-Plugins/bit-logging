@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColours, botIDs } = require('../config.json');
+const { embedColours, botIDs, logs } = require('../config.json');
 
 
 
@@ -7,6 +7,14 @@ module.exports = {
 	name: 'inviteCreate',
 	execute(invite) {
         const client = invite.client
+
+		if(logs.invite.create === false) {
+			return;
+		}
+		
+		if(invite.guild.id != botIDs.guild) {
+			return;
+		}
 
 		var currentDate = Date.now()
 		currentDate = currentDate/1000

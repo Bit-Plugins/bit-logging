@@ -1,12 +1,18 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColours, botIDs } = require('../config.json');
-
-
+const { embedColours, botIDs, logs } = require('../config.json');
 
 module.exports = {
 	name: 'emojiCreate',
 	execute(emoji) {
         const client = emoji.client
+
+		if(logs.emoji.create === false) {
+			return;
+		}
+		
+		if(emoji.guild.id !== botIDs.guild) {
+			return;
+		}
 
 		const embed = new EmbedBuilder()
 			.setColor(embedColours.positive)

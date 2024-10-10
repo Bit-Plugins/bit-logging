@@ -1,11 +1,15 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColours, botIDs } = require('../config.json');
+const { embedColours, botIDs, logs } = require('../config.json');
 
 module.exports = {
 	name: 'messageDelete',
 	execute(message) {
 		const client = message.client
 		const user = message.user
+		if(logs.message.delete === false) {
+			return;
+		}
+
 		if(message.guild.id != botIDs.guild) {
 			return;
 		}

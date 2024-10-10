@@ -1,9 +1,17 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColours, botIDs } = require('../config.json');
+const { embedColours, botIDs, logs } = require('../config.json');
 
 module.exports = {
 	name: 'channelDelete',
 	execute(channel) {
+		if(logs.channel.delete === false) {
+			return;
+		}
+
+		if(channel.guild.id !== botIDs.guild) {
+			return;
+		}
+		
 		const client = channel.client
 
 		const lookup = [
@@ -39,10 +47,6 @@ module.exports = {
 			{ value: 29, name: "Unknown"},
 			{ value: 30, name: "Unknown"},
 		];
-
-		if(channel.guild.id !== botIDs.guild) {
-			return;
-		}
 
 		var isThread = false;
 

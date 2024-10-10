@@ -1,10 +1,14 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColours, botIDs } = require('../config.json');
+const { embedColours, botIDs, logs } = require('../config.json');
 
 module.exports = {
 	name: 'roleCreate',
 	execute(role) {
 		const client = role.client
+		if(logs.role.create === false) {
+			return;
+		}
+
 		if(role.guild.id !== botIDs.guild) {
 			return;
 		}

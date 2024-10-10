@@ -7,10 +7,42 @@
 		"secondary": "#93714e"
 	},
 	"botIDs": {
-		"logs": "683458185763225617",
-		"guild": "229690400816889856",
-		"client": "1151679923912708147",
-		"owner": "835394949612175380",
-		"welcome": "683458023636860981"
+		"logs": "loggingID",
+		"guild": "guildID",
+		"client": "clientID",
+		"owner": "ownerID"
+	},
+	"logs": {
+		"channel": {
+			"create": true,
+			"edit": true,
+			"delete": true
+		},
+		"emoji": {
+			"create": true,
+			"delete": true
+		},
+		"ban": {
+			"create": true,
+			"delete": true
+		},
+		"member": {
+			"add": true,
+			"remove": true,
+			"verified": true
+		},
+		"invite": {
+			"create": true,
+			"delete": true
+		},
+		"message": {
+			"delete": true,
+			"edit": true
+		},
+		"role": {
+			"create": true,
+			"delete": true,
+			"edit": true
+		}
 	}
 }

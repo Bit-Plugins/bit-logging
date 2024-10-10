@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColours, botIDs } = require('../config.json');
+const { embedColours, botIDs, logs } = require('../config.json');
 
 module.exports = {
 	name: 'roleUpdate',
@@ -17,6 +17,10 @@ module.exports = {
 		var oemoji = oldRole.unicodeEmoji
 		var nname = newRole.name
 		var oname = oldRole.name
+
+		if(logs.role.edit === false) {
+			return;
+		}
 
 		if(newRole.guild.id !== botIDs.guild) {
 			return;

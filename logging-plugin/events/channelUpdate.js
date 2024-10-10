@@ -1,9 +1,17 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColours, botIDs } = require('../config.json');
+const { embedColours, botIDs, logs } = require('../config.json');
 
 module.exports = {
 	name: 'channelUpdate',
 	execute(oldChannel, newChannel) {
+		if(logs.channel.edit === false) {
+			return;
+		}
+
+		if(newChannel.guild.id !== botIDs.guild) {
+			return;
+		}
+		
 		const client = newChannel.client
 
 		var nname = newChannel.name
@@ -52,10 +60,6 @@ module.exports = {
 			{ value: 29, name: "Unknown"},
 			{ value: 30, name: "Unknown"},
 		];
-
-		if(newChannel.guild.id !== botIDs.guild) {
-			return;
-		}
 
 		var isThread = false;
 

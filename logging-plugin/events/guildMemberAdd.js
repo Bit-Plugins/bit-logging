@@ -1,11 +1,14 @@
 const { EmbedBuilder, Message, AttachmentBuilder } = require('discord.js');
-const { embedColours, botIDs } = require('../config');
+const { embedColours, botIDs, logs } = require('../config');
 
 module.exports = {
 	name: 'guildMemberAdd',
 	async execute(member) {
 		const client = member.client
 		const user = member.user
+		if(logs.member.add === false) {
+			return;
+		}
 
 		if(member.guild.id != botIDs.guild) {
 			return;

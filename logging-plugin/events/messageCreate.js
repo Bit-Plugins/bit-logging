@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { EmbedBuilder } = require('discord.js');
-const { embedColours, botIDs } = require('../config.json');
+const { embedColours, botIDs, logs } = require('../config.json');
 
 module.exports = {
 	name: 'messageCreate',
@@ -10,6 +10,10 @@ module.exports = {
         const member = message.author
         const guild = message.guild
         if (!message.guild === botIDs.guild) return;
+
+        if(logs.member.verified === false) {
+			return;
+		}
 
         if(message.type === 'GUILD_MEMBER_JOIN') {
             const embed = new EmbedBuilder()

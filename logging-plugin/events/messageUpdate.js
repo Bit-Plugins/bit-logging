@@ -1,11 +1,15 @@
 const { EmbedBuilder, Message, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const { embedColours, botIDs } = require('../config.json');
+const { embedColours, botIDs, logs } = require('../config.json');
 
 module.exports = {
 	name: 'messageUpdate',
 	execute(oldMessage, newMessage) {
 		const client = newMessage.client
 		const user = newMessage.user
+
+		if(logs.message.edit === false) {
+			return;
+		}
 
 		if(newMessage.guild.id != botIDs.guild) {
 			return;
