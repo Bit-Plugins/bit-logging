@@ -1,5 +1,5 @@
 # Logging Plugin
-A logging plugin created for Bit 2024.1.1
+A logging plugin created for Bit 2025.1
 
 ## Required modules
 - None

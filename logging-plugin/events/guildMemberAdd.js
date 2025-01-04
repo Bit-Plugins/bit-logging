@@ -1,5 +1,5 @@
 const { EmbedBuilder, Message, AttachmentBuilder } = require('discord.js');
-const { embedColours, botIDs, logs } = require('../config');
+const { embedColours, botIDs, logs } = require("../../../configs/logging-plugin/config.json")
 
 module.exports = {
 	name: 'guildMemberAdd',

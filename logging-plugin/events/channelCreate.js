@@ -1,11 +1,11 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColours, botIDs, logs } = require('../config.json');
+const { embedColours, botIDs, logs } = require("../../../configs/logging-plugin/config.json")
 
 module.exports = {
 	name: 'channelCreate',
 	execute(channel) {
 		const client = channel.client
-		if(logs[channel.guild.id]) {
+		if(botIDs.logs[channel.guild.id]) {
 			if(logs[channel.guild.id].channel.create === false) return;
 		} else {
 			return;
