@@ -4,7 +4,9 @@ const { embedColours, botIDs, logs } = require('../config.json');
 module.exports = {
 	name: 'channelDelete',
 	execute(channel) {
-		if(logs[channel.guild.id].channel.delete === false) {
+		if(logs[channel.guild.id]) {
+			if(logs[channel.guild.id].channel.delete === false) return;
+		} else {
 			return;
 		}
 

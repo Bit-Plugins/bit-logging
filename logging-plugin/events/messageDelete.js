@@ -5,7 +5,9 @@ module.exports = {
 	name: 'messageDelete',
 	execute(message) {
 		const client = message.client
-		if(logs[message.guild.id].message.delete === false) {
+		if(logs[message.guild.id]) {
+			if(logs[message.guild.id].message.delete === false) return;
+		} else {
 			return;
 		}
 

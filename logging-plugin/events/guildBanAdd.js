@@ -5,7 +5,9 @@ module.exports = {
 	name: 'guildBanAdd',
 	execute(ban) {
 		const client = ban.client
-		if(logs[ban.guild.id].ban.create === false) {
+		if(logs[ban.guild.id]) {
+			if(logs[ban.guild.id].ban.create === false) return;
+		} else {
 			return;
 		}
 

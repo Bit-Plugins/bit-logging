@@ -2,7 +2,7 @@
     "name": "Logging Plugin",
     "id": "logging-plugin",
     "developer": "Lockyz Dev",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "support": "https://github.com/Bit-Plugins/logging-plugin/issues",
     "update_url": "https://cdn.lockyzdev.net/discord/bots/bit/plugins/logging/update.json",
     "events": true,

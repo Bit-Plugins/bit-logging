@@ -5,7 +5,9 @@ module.exports = {
 	name: 'channelCreate',
 	execute(channel) {
 		const client = channel.client
-		if(logs[channel.guild.id].channel.create === false) {
+		if(logs[channel.guild.id]) {
+			if(logs[channel.guild.id].channel.create === false) return;
+		} else {
 			return;
 		}
 
@@ -56,7 +58,7 @@ module.exports = {
 			if(channel.parent) {
 				categoryText = " in "+channel.parent.name+' was created.'
 			} else {
-				categoryText = " was deleted."
+				categoryText = " was created."
 			}
 			
 			const embed = new EmbedBuilder()

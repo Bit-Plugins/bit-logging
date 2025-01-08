@@ -5,7 +5,9 @@ module.exports = {
 	name: 'roleDelete',
 	execute(role) {
 		const client = role.client
-		if(logs[role.guild.id].role.delete === false) {
+		if(logs[role.guild.id]) {
+			if(logs[role.guild.id].role.delete === false) return;
+		} else {
 			return;
 		}
 

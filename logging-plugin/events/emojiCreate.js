@@ -6,7 +6,9 @@ module.exports = {
 	execute(emoji) {
         const client = emoji.client
 
-		if(logs[emoji.guild.id].emoji.create === false) {
+		if(logs[emoji.guild.id]) {
+			if(logs[emoji.guild.id].emoji.create === false) return;
+		} else {
 			return;
 		}
 

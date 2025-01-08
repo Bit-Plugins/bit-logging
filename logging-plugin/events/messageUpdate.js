@@ -6,7 +6,9 @@ module.exports = {
 	execute(oldMessage, newMessage) {
 		const client = newMessage.client
 
-		if(logs[newMessage.guild.id].message.edit === false) {
+		if(logs[newMessage.guild.id]) {
+			if(logs[newMessage.guild.id].message.edit === false) return;
+		} else {
 			return;
 		}
 		
