@@ -2,13 +2,13 @@
     "name": "Logging Plugin",
     "id": "logging-plugin",
     "developer": "Lockyz Media",
-    "version": "3.0.0",
+    "version": "3.1.0",
     "support": "https://github.com/Bit-Plugins/logging-plugin/issues",
     "update_url": "https://cdn.lockyzmedia.com/discord/bots/bit/update/logging/update.json",
     "events": true,
     "commands": false,
-    "hasIndex": true,
-    "mainFile": "index.js",
+    "has_index": true,
+    "main_file": "index.js",
     "list_in_plugins_command": true,
     "requirements": {
         "bit": {

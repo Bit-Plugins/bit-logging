@@ -1,8 +1,8 @@
-const fs = require('node:fs');
-const path = require('node:path');
+const core = require("bit/core")
 
 module.exports = {
-    startFunction: function startFunction() {
-		console.log("If this is the first run. Please edit the config file!")
-    }
+  start_function: function start_function() {
+		core.log(1, "Logging Plugin", true, "Please make sure to edit the config file.")
+		core.log(1, "Logging Plugin", true, "This can be found in the configs/logging-plugin folder!")
+  }
 };
