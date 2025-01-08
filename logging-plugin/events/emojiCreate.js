@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColours, botIDs, logs } = require('../config.json');
+const { embedColours, botIDs, logs } = require("../../../configs/logging-plugin/config.json")
 
 module.exports = {
 	name: 'emojiCreate',

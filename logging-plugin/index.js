@@ -1,5 +1,8 @@
+const fs = require('node:fs');
+const path = require('node:path');
+
 module.exports = {
     startFunction: function startFunction() {
-        console.log("Logging Plugin Successfully Loaded!")
+		console.log("If this is the first run. Please edit the config file!")
     }
 };
