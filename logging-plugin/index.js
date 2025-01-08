@@ -1,5 +1,3 @@
-const core = require("bit/core")
-const config = require("../../../configs/logging-plugin/config.json")
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -80,11 +78,11 @@ module.exports = {
 
         fs.writeFileIfNotExist("../../../configs/logging-plugin/config.json", jsonToWrite, function(err, existed) {
             if(err) {
-                core.log(2, "Logging Plugin", true, "An error has occured: "+err)
+                console.log("[Logging Plugin]: An error has occured: "+err)
             } else {
                 if(existed === false) {
-                    core.log(2, "Logging Plugin", true, "Please make sure to edit the config file located at configs/logging-plugin/config.json!")
-                    core.log(2, "Logging Plugin", true, "Stopping Bot!")
+                    console.log("[Logging Plugin]: Please make sure to edit the config file located at configs/logging-plugin/config.json!")
+                    console.log("[Logging Plugin]: Stopping Bot!")
                     process.exit(1);
                 }
             }
