@@ -5,7 +5,7 @@ module.exports = {
 	name: 'channelCreate',
 	execute(channel) {
 		const client = channel.client
-		if(botIDs.logs[channel.guild.id]) {
+		if(logs[channel.guild.id]) {
 			if(logs[channel.guild.id].channel.create === false) return;
 		} else {
 			return;
