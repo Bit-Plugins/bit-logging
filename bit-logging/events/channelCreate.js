@@ -1,16 +1,15 @@
 const { EmbedBuilder } = require('discord.js');
-const { embedColours, botIDs, logs } = require("../../../configs/logging-plugin/config.json")
+const { embedColours, botIDs, logs } = require("../../../configs/bit-logging/config.json")
 
 module.exports = {
-	name: 'channelDelete',
+	name: 'channelCreate',
 	execute(channel) {
+		const client = channel.client
 		if(logs[channel.guild.id]) {
-			if(logs[channel.guild.id].channel.delete === false) return;
+			if(logs[channel.guild.id].channel.create === false) return;
 		} else {
 			return;
 		}
-
-		const client = channel.client
 
 		if(botIDs[channel.guild.id].logs) {
 			const lookup = [
@@ -24,7 +23,7 @@ module.exports = {
 				{ value: 7, name: "Unknown" },
 				{ value: 8, name: "Unknown" },
 				{ value: 9, name: "Unknown" },
-				{ value: 10, name: "Announcement Thread" },
+				{ value: 10, name: "Announcement" },
 				{ value: 11, name: "Public Thread" },
 				{ value: 12, name: "Private Thread" },
 				{ value: 13, name: "Stage" },
@@ -46,31 +45,31 @@ module.exports = {
 				{ value: 29, name: "Unknown"},
 				{ value: 30, name: "Unknown"},
 			];
-
+	
 			var isThread = false;
-
+	
 			if(channel.type === 11 || channel.type === 12 || channel.type === 13)
 			{
 				isThread = true;
 			}
-
+	
 			var categoryText
-
+	
 			if(channel.parent) {
-				categoryText = " in "+channel.parent.name+' was deleted.'
+				categoryText = " in "+channel.parent.name+' was created.'
 			} else {
-				categoryText = " was deleted."
+				categoryText = " was created."
 			}
-
+			
 			const embed = new EmbedBuilder()
-				.setColor(embedColours.negative)
-				
+				.setColor(embedColours.positive)
+
 				if(isThread) {
 					embed.setDescription("A thread named "+channel.name)
 				} else {
 					embed.setDescription("A channel named "+channel.name+" of type "+lookup[channel.type].name+categoryText)
 				}
-
+				
 				embed.setFooter({ text: 'Channel ID '+channel.id })
 				embed.setTimestamp();
 			client.channels.cache.get(botIDs[channel.guild.id].logs).send({ embeds: [embed] });
