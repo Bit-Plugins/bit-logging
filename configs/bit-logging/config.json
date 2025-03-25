@@ -14,6 +14,10 @@
 	},
 	"logs": {
 		"guildID": {
+			"ban": {
+				"create": true,
+				"delete": true
+			},
 			"channel": {
 				"create": true,
 				"edit": true,
@@ -23,7 +27,7 @@
 				"create": true,
 				"delete": true
 			},
-			"ban": {
+			"invite": {
 				"create": true,
 				"delete": true
 			},
@@ -32,18 +36,19 @@
 				"remove": true,
 				"verified": true
 			},
-			"invite": {
-				"create": true,
-				"delete": true
-			},
 			"message": {
 				"delete": true,
-				"edit": true
+				"edit": true,
+				"pinned": true
 			},
 			"role": {
 				"create": true,
 				"delete": true,
 				"edit": true
+			},
+			"sticker": {
+				"create": true,
+				"delete": true
 			}
 		}
 	}
