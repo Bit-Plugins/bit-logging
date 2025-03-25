@@ -1,8 +1,8 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, Events } = require('discord.js');
 const { embedColours, botIDs, logs } = require("../../../configs/bit-logging/config.json")
 
 module.exports = {
-	name: 'guildBanAdd',
+	name: Events.GuildBanAdd,
 	execute(ban) {
 		const client = ban.client
 		if(logs[ban.guild.id]) {

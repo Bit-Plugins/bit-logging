@@ -1,8 +1,8 @@
-const { EmbedBuilder, Message, AttachmentBuilder } = require('discord.js');
+const { EmbedBuilder, Events } = require('discord.js');
 const { embedColours, botIDs, logs } = require("../../../configs/bit-logging/config.json")
 
 module.exports = {
-	name: 'guildMemberAdd',
+	name: Events.GuildMemberAdd,
 	async execute(member) {
 		const client = member.client
 		const user = member.user

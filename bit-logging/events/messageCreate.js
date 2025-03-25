@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, Events } = require('discord.js');
 const { embedColours, botIDs, logs } = require("../../../configs/bit-logging/config.json")
 
 module.exports = {

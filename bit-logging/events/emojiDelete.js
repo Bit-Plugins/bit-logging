@@ -1,8 +1,8 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, Events } = require('discord.js');
 const { embedColours, botIDs, logs } = require("../../../configs/bit-logging/config.json")
 
 module.exports = {
-	name: 'emojiDelete',
+	name: Events.GuildEmojiDelete,
 	execute(emoji) {
 		if(logs[emoji.guild.id]) {
 			if(logs[emoji.guild.id].emoji.delete === false) return;

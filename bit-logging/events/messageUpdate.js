@@ -1,8 +1,8 @@
-const { EmbedBuilder, Message, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, Events } = require('discord.js');
 const { embedColours, botIDs, logs } = require("../../../configs/bit-logging/config.json")
 
 module.exports = {
-	name: 'messageUpdate',
+	name: Events.MessageUpdate,
 	execute(oldMessage, newMessage) {
 		const client = newMessage.client
 

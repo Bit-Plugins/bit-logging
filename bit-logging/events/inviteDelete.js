@@ -1,8 +1,8 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, Events } = require('discord.js');
 const { embedColours, botIDs, logs } = require("../../../configs/bit-logging/config.json")
 
 module.exports = {
-	name: 'inviteDelete',
+	name: Events.InviteDelete,
 	execute(invite) {
 		if(logs[invite.guild.id]) {
 			if(logs[invite.guild.id].invite.delete === false) return;

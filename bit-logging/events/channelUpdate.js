@@ -1,8 +1,8 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, Events } = require('discord.js');
 const { embedColours, botIDs, logs } = require("../../../configs/bit-logging/config.json")
 
 module.exports = {
-	name: 'channelUpdate',
+	name: Events.ChannelUpdate,
 	execute(oldChannel, newChannel) {
 		if(logs[newChannel.guild.id]) {
 			if(logs[newChannel.guild.id].channel.edit === false) return;
