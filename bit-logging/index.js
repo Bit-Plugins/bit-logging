@@ -41,6 +41,6 @@ module.exports = {
       { value: 30, name: "Unknown"},
     ];
 
-    return: lookup[type].name
+    return lookup[type].name
   }
 };

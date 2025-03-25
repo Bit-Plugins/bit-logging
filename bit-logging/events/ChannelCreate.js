@@ -12,7 +12,7 @@ module.exports = {
 			return;
 		}
 
-		if(botIDs[channel.guild.id].logs) 
+		if(botIDs[channel.guild.id].logs) {
 			var isThread = false;
 	
 			if(channel.type === 11 || channel.type === 12 || channel.type === 13)
