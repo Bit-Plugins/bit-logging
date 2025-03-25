@@ -25,7 +25,8 @@
 			},
 			"emoji": {
 				"create": true,
-				"delete": true
+				"delete": true,
+				"update": true
 			},
 			"invite": {
 				"create": true,
