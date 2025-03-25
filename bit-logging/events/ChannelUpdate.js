@@ -1,5 +1,6 @@
 const { EmbedBuilder, Events } = require('discord.js');
 const { embedColours, botIDs, logs } = require("../../../configs/bit-logging/config.json")
+const channel_lookup = require("../index.js")
 
 module.exports = {
 	name: Events.ChannelUpdate,
@@ -18,40 +19,6 @@ module.exports = {
 
 			var ntype = newChannel.type.toString()
 			var otype = oldChannel.type.toString()
-
-			const lookup = [
-				{ value: 0, name: "Guild Text" },
-				{ value: 1, name: "DM" },
-				{ value: 2, name: "Voice" },
-				{ value: 3, name: "Group DM" },
-				{ value: 4, name: "Category" },
-				{ value: 5, name: "Announcement" },
-				{ value: 6, name: "Unknown" },
-				{ value: 7, name: "Unknown" },
-				{ value: 8, name: "Unknown" },
-				{ value: 9, name: "Unknown" },
-				{ value: 10, name: "Announcement" },
-				{ value: 11, name: "Public Thread" },
-				{ value: 12, name: "Private Thread" },
-				{ value: 13, name: "Stage" },
-				{ value: 14, name: "Directory" },
-				{ value: 15, name: "Forum" },
-				{ value: 16, name: "Unknown"},
-				{ value: 17, name: "Unknown"},
-				{ value: 18, name: "Unknown"},
-				{ value: 19, name: "Unknown"},
-				{ value: 20, name: "Unknown"},
-				{ value: 21, name: "Unknown"},
-				{ value: 22, name: "Unknown"},
-				{ value: 23, name: "Unknown"},
-				{ value: 24, name: "Unknown"},
-				{ value: 25, name: "Unknown"},
-				{ value: 26, name: "Unknown"},
-				{ value: 27, name: "Unknown"},
-				{ value: 28, name: "Unknown"},
-				{ value: 29, name: "Unknown"},
-				{ value: 30, name: "Unknown"},
-			];
 			var nparent
 			var oparent
 
@@ -101,7 +68,7 @@ module.exports = {
 
 				if(newChannel.type) {
 					embed.addFields(
-						{ name: 'New Type', value: lookup[ntype].name, inline: true },
+						{ name: 'New Type', value: channel_lookup(ntype), inline: true },
 					)
 				}
 				

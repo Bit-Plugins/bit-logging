@@ -34,7 +34,7 @@ module.exports = {
 				if(isThread) {
 					embed.setDescription("A thread named "+channel.name)
 				} else {
-					embed.setDescription("A channel named "+channel.name+" of type "+channel_lookup[channel.type].name+categoryText)
+					embed.setDescription("A channel named "+channel.name+" of type "+channel_lookup(channel.type)+categoryText)
 				}
 				
 				embed.setFooter({ text: 'Channel ID '+channel.id })

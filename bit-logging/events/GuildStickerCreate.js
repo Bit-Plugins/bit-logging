@@ -16,7 +16,7 @@ module.exports = {
 			const embed = new EmbedBuilder()
 				.setColor(embedColours.positive)
 				.setDescription("A sticker named "+sticker.name+" was created. Due to an issue I cannot send a preview of the sticker.")
-				.setFooter({ text: 'sticker ID '+sticker.id })
+				.setFooter({ text: 'Sticker ID '+sticker.id })
 				.setTimestamp();
 			client.channels.cache.get(botIDs[sticker.guild.id].logs).send({ embeds: [embed] });
 			return;

@@ -27,10 +27,10 @@ module.exports = {
 		if(botIDs[newRole.guild.id].logs) {
 			if(ncolor !== ocolor || nhoist !== ohoist || nmentionable !== omentionable || nname !== oname || npermissions !== opermissions || nemoji !== oemoji) {
 				const embed = new EmbedBuilder()
-					.setDescription("A role named "+oname+" has been updated")
+					.setDescription("A role "+newRole+" has been updated")
 					if(nname !== oname) {
 						embed.addFields(
-							{ name: 'New Name', value: nname, inline: true },
+							{ name: 'Old Name', value: oname, inline: true },
 						)
 					}
 
