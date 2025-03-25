@@ -14,7 +14,7 @@ module.exports = {
 
 		if(botIDs[member.guild.id].logs) {
 			const embed = new EmbedBuilder()
-				.setColor(embedColours.main)
+				.setColor(embedColours.positive)
 				.setDescription("A user named <@"+user.id+"> joined the server.")
 				.setFooter({ text: 'User ID '+ user.id })
 				.setTimestamp();
