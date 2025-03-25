@@ -19,7 +19,7 @@ module.exports = {
 		var oname = oldRole.name
 
 		if(logs[newRole.guild.id]) {
-			if(logs[newRole.guild.id].role.edit === false) return;
+			if(logs[newRole.guild.id].role.update === false) return;
 		} else {
 			return;
 		}

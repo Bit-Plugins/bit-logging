@@ -20,8 +20,8 @@
 			},
 			"channel": {
 				"create": true,
-				"edit": true,
-				"delete": true
+				"delete": true,
+				"update": true
 			},
 			"emoji": {
 				"create": true,
@@ -39,13 +39,13 @@
 			},
 			"message": {
 				"delete": true,
-				"edit": true,
-				"pinned": true
+				"pinned": true,
+				"update": true
 			},
 			"role": {
 				"create": true,
 				"delete": true,
-				"edit": true
+				"update": true
 			},
 			"sticker": {
 				"create": true,

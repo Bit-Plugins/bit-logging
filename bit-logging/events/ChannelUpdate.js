@@ -5,7 +5,7 @@ module.exports = {
 	name: Events.ChannelUpdate,
 	execute(oldChannel, newChannel) {
 		if(logs[newChannel.guild.id]) {
-			if(logs[newChannel.guild.id].channel.edit === false) return;
+			if(logs[newChannel.guild.id].channel.update === false) return;
 		} else {
 			return;
 		}
