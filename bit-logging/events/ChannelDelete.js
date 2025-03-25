@@ -24,7 +24,7 @@ module.exports = {
 			var categoryText
 
 			if(channel.parent) {
-				categoryText = " in "+channel.parent.name+' was deleted.'
+				categoryText = " in "+channel.parent+' was deleted.'
 			} else {
 				categoryText = " was deleted."
 			}
@@ -33,9 +33,9 @@ module.exports = {
 				.setColor(embedColours.negative)
 				
 				if(isThread) {
-					embed.setDescription("A thread named "+channel.name)
+					embed.setDescription("A thread "+channel)
 				} else {
-					embed.setDescription("A channel named "+channel.name+" of type "+channel_lookup(channel.type)+categoryText)
+					embed.setDescription("A channel "+channel+" of type "+channel_lookup(channel.type)+categoryText)
 				}
 
 				embed.setFooter({ text: 'Channel ID '+channel.id })

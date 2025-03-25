@@ -14,7 +14,7 @@ module.exports = {
         	const client = emoji.client
 			const embed = new EmbedBuilder()
 				.setColor(embedColours.negative)
-				.setDescription("An Emoji named "+emoji.name+" was deleted.")
+				.setDescription("An emoji named "+emoji.name+" was deleted.")
 				.setFooter({ text: 'Emoji ID '+emoji.id })
 				.setTimestamp();
 			client.channels.cache.get(botIDs[emoji.guild.id].logs).send({ embeds: [embed] });

@@ -16,8 +16,8 @@ module.exports = {
             if(oldEmoji.name !== newEmoji.name) {
                 const embed = new EmbedBuilder()
 				    .setColor(embedColours.positive)
-				    .setDescription("An emoji named "+oldEmoji.name+" was updated <:"+newEmoji.name+":"+oldEmoji.id+">.\nNew Name: "+newEmoji.name)
-				    .setFooter({ text: 'oldEmoji ID '+oldEmoji.id })
+				    .setDescription("An emoji named "+oldEmoji.name+" was updated <:"+newEmoji.name+":"+newEmoji.id+">.\nNew Name: "+newEmoji.name)
+				    .setFooter({ text: 'Emoji ID '+newEmoji.id })
 				    .setTimestamp();
 			    client.channels.cache.get(botIDs[oldEmoji.guild.id].logs).send({ embeds: [embed] });
 			    return;

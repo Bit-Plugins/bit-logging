@@ -14,7 +14,7 @@ module.exports = {
         	const client = sticker.client
 			const embed = new EmbedBuilder()
 				.setColor(embedColours.negative)
-				.setDescription("An Sticker named "+sticker.name+" was deleted.")
+				.setDescription("A sticker named "+sticker.name+" was deleted.")
 				.setFooter({ text: 'Sticker ID '+sticker.id })
 				.setTimestamp();
 			client.channels.cache.get(botIDs[sticker.guild.id].logs).send({ embeds: [embed] });
