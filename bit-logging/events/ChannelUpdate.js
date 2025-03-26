@@ -44,7 +44,7 @@ module.exports = {
 			var categoryText
 
 			if(newChannel.parent) {
-				categoryText = " in "+newChannel.parent+' was edited.'
+				categoryText = " in "+newChannel.parent.toString()+' was edited.'
 			} else {
 				categoryText = " was edited."
 			}
@@ -52,7 +52,7 @@ module.exports = {
 			if( nname !== oname || nparent !== oparent || ntype !== otype ) {
 				const embed = new EmbedBuilder()
 					.setColor(embedColours.neutral)
-					.setDescription('A channel '+oldChannel+' of type '+oldChannel.type+categoryText)
+					.setDescription('A channel '+oldChannel.toString()+' of type '+oldChannel.type+categoryText)
 
 				if(newChannel.name) {
 					embed.addFields(

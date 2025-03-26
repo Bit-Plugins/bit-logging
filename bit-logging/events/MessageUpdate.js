@@ -26,7 +26,7 @@ module.exports = {
 				)
 			const embed0 = new EmbedBuilder()
 				.setColor(embedColours.neutral)
-				.setDescription("A message by "+oldMessage.author+" in "+newMessage.channel+" was edited.")
+				.setDescription("A message by "+oldMessage.author.toString()+" in "+newMessage.channel.toString()+" was edited.")
 
 				if(newMessage.cleanContent.length > 1024) {
 					embed0.addFields({ name: 'Content', value: 'Content is over 1024 lines, it\'s in a new embed'})

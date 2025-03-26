@@ -14,7 +14,7 @@ module.exports = {
 		if(botIDs[channel.guild.id].logs) {
 			const embed = new EmbedBuilder()
 				.setColor(embedColours.neutral)
-				.setDescription("A message in "+channel+" has been pinned.")
+				.setDescription("A message in "+channel.toString()+" has been pinned.")
 				.setTimestamp()
 			client.channels.cache.get(botIDs[channel.guild.id].logs).send({ embeds: [embed] })
 			return;

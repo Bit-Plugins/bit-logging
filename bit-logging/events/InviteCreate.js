@@ -24,9 +24,9 @@ module.exports = {
 			const embed = new EmbedBuilder()
 				.setColor(embedColours.positive)
 				if(invite.maxAge === 0) {
-					embed.setDescription("An infinite invite was created by "+invite.inviter+", and has "+invite.maxUses+" max uses\nhttps://discord.gg/"+invite.code);
+					embed.setDescription("An infinite invite was created by "+invite.inviter.toString()+", and has "+invite.maxUses+" max uses\nhttps://discord.gg/"+invite.code);
 				} else {
-					embed.setDescription("An invite was created by "+invite.inviter+", it will end <t:"+inviteEnd+":R> and has "+invite.maxUses+" max uses\nhttps://discord.gg/"+invite.code);
+					embed.setDescription("An invite was created by "+invite.inviter.toString()+", it will end <t:"+inviteEnd+":R> and has "+invite.maxUses+" max uses\nhttps://discord.gg/"+invite.code);
 				}
 
 				embed.setTimestamp();

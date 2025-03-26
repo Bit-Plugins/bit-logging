@@ -15,7 +15,7 @@ module.exports = {
 		if(botIDs[member.guild.id].logs) {
 			const embed = new EmbedBuilder()
 				.setColor(embedColours.negative)
-				.setDescription("A user "+user+" left the server.")
+				.setDescription("A user "+user.toString()+" left the server.")
 				.setTimestamp();
 			client.channels.cache.get(botIDs[member.guild.id].logs).send({ embeds: [embed] })
 			return;

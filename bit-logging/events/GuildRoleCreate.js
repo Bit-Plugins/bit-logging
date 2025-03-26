@@ -13,7 +13,7 @@ module.exports = {
 
 		if(botIDs[role.guild.id].logs) {
 			const embed = new EmbedBuilder()
-				.setDescription("A role "+role+" was created.")
+				.setDescription("A role "+role.toString()+" was created.")
 				
 				if(role.color) {
 					embed.setColor(role.color)

@@ -14,7 +14,7 @@ module.exports = {
 		if(botIDs[message.guild.id].logs) {
 			const embed0 = new EmbedBuilder()
 				.setColor(embedColours.negative)
-				.setDescription("A message by "+message.author+" in "+message.channel+" was deleted")
+				.setDescription("A message by "+message.author.toString()+" in "+message.channel.toString()+" was deleted")
 
 				if(message.cleanContent.length > 1024) {
 					embed0.addFields({name: 'Content', value: 'Message Content is over 1024 lines, it\'s in a new embed', inline: false })

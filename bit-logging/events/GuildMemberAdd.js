@@ -15,7 +15,7 @@ module.exports = {
 		if(botIDs[member.guild.id].logs) {
 			const embed = new EmbedBuilder()
 				.setColor(embedColours.positive)
-				.setDescription("A user "+user+" joined the server.")
+				.setDescription("A user "+user.toString()+" joined the server.")
 				.setFooter({ text: 'User ID '+ user.id })
 				.setTimestamp();
 			client.channels.cache.get(botIDs[member.guild.id].logs).send({ embeds: [embed] })

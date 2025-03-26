@@ -22,7 +22,7 @@ module.exports = {
 
 			const embed = new EmbedBuilder()
 				.setColor(embedColours.positive)
-				.setDescription("A user: "+ban.user+" was banned"+banReason)
+				.setDescription("A user: "+ban.user.toString()+" was banned"+banReason)
 				.setTimestamp()
 			client.channels.cache.get(botIDs[ban.guild.id].logs).send({ embeds: [embed] })
 			return;

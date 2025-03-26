@@ -14,7 +14,7 @@ module.exports = {
 		if(botIDs[oldMember.guild.id].logs) {
             if(oldMember.pending === true && newMember.pending === false) {
                 const embed = new EmbedBuilder()
-                    .setDescription("A user "+oldMember+" has gone through the user verification system.")
+                    .setDescription("A user "+oldMember.toString()+" has gone through the user verification system.")
                     .setColor(embedColours.positive)
                     .setTimestamp()
                     .setFooter('User ID '+ oldMember.id)
