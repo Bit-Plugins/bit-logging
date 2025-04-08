@@ -1,9 +1,17 @@
 const core = require("bit/core")
 
 module.exports = {
+  define_intents: function define_intents() {
+    core.add_intent(GatewayIntentBits.Guilds);
+    core.add_intent(GatewayIntentBits.GuildMembers);
+    core.add_intent(GatewayIntentBits.GuildModeration);
+    core.add_intent(GatewayIntentBits.GuildInvites);
+    core.add_intent(GatewayIntentBits.MessageContent);
+  },
+
   start_function: function start_function() {
-		core.log(1, "Logging Plugin", true, "Please make sure to edit the config file.")
-		core.log(1, "Logging Plugin", true, "This can be found in the configs/bit-logging folder!")
+		core.log(1, "Bit: Logging", true, "Please make sure to edit the config file.")
+		core.log(1, "Bit: Logging", true, "This can be found in the configs/bit-logging folder!")
   },
 
   channel_lookup: function channel_lookup(type) {

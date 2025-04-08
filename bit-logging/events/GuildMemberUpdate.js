@@ -19,7 +19,7 @@ module.exports = {
                     .setTimestamp()
                     .setFooter('User ID '+ oldMember.id)
                 client.channels.cache.get(botIDs[oldMember.guild.id].logs).send({ embeds: [embed] });
-			    return;
+				return;
             }
 		}
 	}
