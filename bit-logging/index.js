@@ -1,4 +1,5 @@
 const core = require("bit/core")
+const { GatewayIntentBits } = require('discord.js');
 
 module.exports = {
   define_intents: function define_intents() {
